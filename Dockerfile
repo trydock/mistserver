@@ -8,7 +8,7 @@ CMD ["/sbin/my_init"]
 
 # install basics
 RUN apk --no-cache update
-RUN apk --no-cache add ca-certificates wget nano vim
+RUN apk --no-cache add ca-certificates wget nano vim bash
 RUN mkdir -p /app/mistserver /config /media
 ADD start.sh /etc/my_init.d/start.sh
 RUN chmod +x /etc/my_init.d/*.sh
