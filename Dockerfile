@@ -4,8 +4,6 @@ MAINTAINER debuggerboy
 ENV PATH /app/mistserver:$PATH
 ENV MISTSERVER=https://github.com/DDVTECH/mistserver/releases/download/2.13/mistserver_Linux_64_2.13.tar.gz
 
-CMD ["/sbin/my_init"]
-
 # install basics
 RUN apk --no-cache update
 RUN apk --no-cache add ca-certificates wget nano vim bash
