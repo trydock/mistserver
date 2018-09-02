@@ -11,7 +11,7 @@ RUN mkdir -p /src/mistserver /config /media
 
 # install mistserver
 RUN wget -qO- ${MISTSERVERSRC} | tar xvz -C /src/mistserver
-RUN cd /src/mistserver && cmake . && make && make install
+RUN cd /src/mistserver/mistserver-2.13 && cmake . && make && make install
 
 # clean up
 RUN rm -rf rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
