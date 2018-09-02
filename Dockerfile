@@ -1,16 +1,17 @@
 FROM alpine:latest
 MAINTAINER debuggerboy
 
-ENV PATH /app/mistserver:$PATH
-ENV MISTSERVER=https://github.com/DDVTECH/mistserver/releases/download/2.13/mistserver_Linux_64_2.13.tar.gz
+#ENV PATH /app/mistserver:$PATH
+ENV MISTSERVERSRC=https://github.com/DDVTECH/mistserver/archive/2.13.tar.gz
 
 # install basics
 RUN apk --no-cache update
-RUN apk --no-cache add ca-certificates wget nano vim bash
-RUN mkdir -p /app/mistserver /config /media
+RUN apk --no-cache add ca-certificates wget nano vim bash file binutils musl-utils libstdc++ libgcc cmake git make gcc musl-dev g++ mbedtls-dev libexecinfo-dev
+RUN mkdir -p /src /config /media
 
 # install mistserver
-RUN wget -qO- ${MISTSERVER} | tar xvz -C /app/mistserver
+RUN wget -qO- ${MISTSERVERSRC} | tar xvz -C /src/mistserver
+RUN cd /src/mistserver && cmake . && make && make install
 
 # clean up
 RUN rm -rf rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
