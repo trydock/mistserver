@@ -7,7 +7,7 @@ ENV MISTSERVERSRC=https://github.com/DDVTECH/mistserver/archive/2.13.tar.gz
 # install basics
 RUN apk --no-cache update
 RUN apk --no-cache add ca-certificates wget nano vim bash file binutils musl-utils libstdc++ libgcc cmake git make gcc musl-dev g++ mbedtls-dev libexecinfo-dev
-RUN mkdir -p /src /config /media
+RUN mkdir -p /src/mistserver /config /media
 
 # install mistserver
 RUN wget -qO- ${MISTSERVERSRC} | tar xvz -C /src/mistserver
