@@ -19,4 +19,5 @@ RUN rm -rf rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 VOLUME /config /media
 EXPOSE 4242 8181 1935 554
 
-CMD ["MistController -c /config/server.conf"]
+#CMD ["MistController -c /config/server.conf"]
+CMD ['echo "n" | MistController -c /config/server.conf']
