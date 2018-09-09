@@ -14,10 +14,10 @@ RUN wget -qO- ${MISTSERVERSRC} | tar xvz -C /src/mistserver
 RUN cd /src/mistserver/mistserver-2.13 && cmake . && make && make install
 
 # clean up
-RUN rm -rf rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
+RUN rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
 VOLUME /config /media
 EXPOSE 4242 8181 1935 554
 
 #CMD ["MistController -c /config/server.conf"]
-CMD ['echo "n" | MistController -c /config/server.conf']
+CMD ['echo "n" | /usr/bin/MistController -c /config/server.conf']
