@@ -20,4 +20,5 @@ VOLUME /config /media
 EXPOSE 4242 8181 1935 554
 
 #CMD ["MistController -c /config/server.conf"]
-CMD ['echo "n" | /usr/bin/MistController -c /config/server.conf']
+#CMD ['echo "n" | /usr/bin/MistController -c /config/server.conf']
+CMD ["/bin/bash", "-c", "echo 'n' | /usr/bin/MistController -c /config/server.conf"]
